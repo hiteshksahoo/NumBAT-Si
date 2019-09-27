@@ -415,3 +415,6 @@ As2S3_2017_Morrison = Material("As2S3_2017_Morrison")
 As2S3_2016_Smith = Material("As2S3_2016_Smith")
 
 GaAs_2016_Smith = Material("GaAs_2016_Smith")
+
+aSi = Material("aSi")
+Sapphire = Material("Sapphire")

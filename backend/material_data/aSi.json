@@ -1,0 +1,21 @@
+ {
+  "file_name": "aSi",  // Name of this file, will be used as identifier
+  "chemical": "aSi",  // Chemical composition
+  "author": "hikus",  // Author of data
+  "date": "201x",  // Year of data publication/creation
+  "institution": "DTU",  // Source institution
+  "doi": "dx.doi.org/10.1364/OL.41.002338",  // doi or, failing that, the http address
+  "Re_n": 3.62,  // Real part of refractive index []
+  "Im_n": 0.0,  // Imaginary part of refractive index []
+  "s": 2280,  // Density [kg/m3] https://aip.scitation.org/doi/10.1063/1.111121
+  "c_11": 156e9,  // Stiffness tensor component [Pa] https://www.usna.edu/Users/chemistry/jah/_files/Papers/Schalletal_SiPot_PRBV77.pdf
+  "c_12": 58.4e9,  // Stiffness tensor component [Pa] https://journals.aps.org/prb/pdf/10.1103/PhysRevB.54.11857
+  "c_44": 48.8e9,  // Stiffness tensor component [Pa]
+  "p_11": 0.12,  // Photoelastic tensor component [] From SiO2
+  "p_12": 0.270,  // Photoelastic tensor component []
+  "p_44": -0.073,  // Photoelastic tensor component []
+  "eta_11": 1.6e-3,  // Acoustic loss tensor component [Pa s] From SiO2
+  "eta_12": 1.29e-3,  // Acoustic loss tensor component [Pa s]
+  "eta_44": 0.16e-3  // Acoustic loss tensor component [Pa s] 
+}
+

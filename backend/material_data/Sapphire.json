@@ -1,0 +1,24 @@
+ {
+  "file_name": "Sapphire",  // Name of this file, will be used as identifier
+  "chemical": "Sapphire",  // Chemical composition
+  "author": "hikus",  // Author of data
+  "date": "201x",  // Year of data publication/creation
+  "institution": "DTU",  // Source institution
+  "doi": "dx.doi.org/10.1364/OL.41.002338",  // doi or, failing that, the http address
+  "Re_n": 1.745,  // Real part of refractive index []
+  "Im_n": 0.0,  // Imaginary part of refractive index []
+  "s": 3980,  // Density [kg/m3] 
+  "c_11": 496e9,  // Stiffness tensor component [Pa] From http://www.mt-berlin.com/frames_cryst/descriptions/sapphire.htm
+  "c_12": 164e9,  // Stiffness tensor component [Pa]
+  "c_13": 115e9, 
+  "c_33": 498e9,
+  "c_44": 79.5e9,  // Stiffness tensor component [Pa]
+  "p_11": -0.20,  // Photoelastic tensor component [] Dixon, R. W. "Photoelastic properties of selected materials and their relevance for applications to acoustic light modulators and scanners." Journal of Applied Physics 38.13 (1967): 5149-5153.
+  "p_12": -0.08,  // Photoelastic tensor component []
+  "p_44": 0.085,  // Photoelastic tensor component []
+  "p_33": 0.252,
+  "eta_11": 5.9e-3,  // Acoustic loss tensor component [Pa s] From Si
+  "eta_12": 5.16e-3,  // Acoustic loss tensor component [Pa s]
+  "eta_44": 0.62e-3  // Acoustic loss tensor component [Pa s] 
+}
+
