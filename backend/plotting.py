@@ -22,7 +22,7 @@ import sys
 import numpy as np
 from scipy import sqrt
 import subprocess
-from matplotlib.mlab import scipy
+from scipy.interpolate import griddata
 from scipy import interpolate
 import matplotlib
 matplotlib.use('pdf')
