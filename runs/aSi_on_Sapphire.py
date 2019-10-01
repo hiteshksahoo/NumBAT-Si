@@ -4,7 +4,7 @@
 	
 	hikus
 	Origional: 19 Sept 19
-	Edited: 
+	Edited: 30 Sept 19
 """
 
 import time
@@ -33,8 +33,8 @@ wl_nm = 1550 # Wavelength of EM wave in vacuum.
 unitcell_x = 6*wl_nm
 unitcell_y = 0.75*unitcell_x
 # Waveguide widths.
-inc_a_x = 600
-inc_a_y = 450
+inc_a_x = 700
+inc_a_y = 600
 # Shape of the waveguide.
 inc_shape = 'rib_coated'
 
@@ -49,7 +49,7 @@ coat_y = 1000
 num_modes_EM_pump = 20
 num_modes_EM_Stokes = num_modes_EM_pump
 # Number of acoustic modes to solve for.
-num_modes_AC = 50
+num_modes_AC = 100
 # The EM pump mode(s) for which to calculate interaction with AC modes.
 # Can specify a mode number (zero has lowest propagation constant) or 'All'.
 EM_ival_pump = 0
@@ -58,7 +58,7 @@ EM_ival_Stokes = 0
 # The AC mode(s) for which to calculate interaction with EM modes.
 AC_ival = 'All'
 
-prefix_str = 'a-Si_on_Sapp'
+prefix_str = 'a-Si_on_Sapp-'
 
 # Use specified parameters to create a waveguide object.
 # Note use of rough mesh for demonstration purposes.
@@ -100,11 +100,11 @@ k_AC = np.real(sim_EM_pump.Eig_values[EM_ival_pump] - sim_EM_Stokes.Eig_values[E
 print('\n AC wavenumber (1/m) = ', np.round(k_AC, 4))
 
 
-#hikus# k_AC= 2.*9173922.1698
+#k_AC= 2.*9173922.1698
 
 # Calculate Acoustic modes.
-#hikus# shift_Hz = 7.5*1e9 # select the lowest frequency to start FEM search from.
-sim_AC = wguide.calc_AC_modes(num_modes_AC, k_AC, EM_sim=sim_EM_pump)
+shift_Hz = 1.5*1e9 # select the lowest frequency to start FEM search from.
+sim_AC = wguide.calc_AC_modes(num_modes_AC, k_AC, EM_sim=sim_EM_pump, shift_Hz=shift_Hz)
 # # np.savez('wguide_data_AC', sim_AC=sim_AC)
 # npzfile = np.load('wguide_data_AC.npz')
 # sim_AC = npzfile['sim_AC'].tolist()
