@@ -27,8 +27,8 @@ start = time.time()
 wl_nm = 1550
 unitcell_x = 5*wl_nm
 unitcell_y = 0.5*unitcell_x
-inc_a_x = 730
-inc_a_y = 500
+inc_a_x = 700
+inc_a_y = 600
 inc_shape = 'rectangular'
 
 num_modes_EM_pump = 30
