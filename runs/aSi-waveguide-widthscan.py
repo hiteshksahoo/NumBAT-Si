@@ -67,15 +67,15 @@ def modes_n_gain(wguide):
     return [sim_EM_pump, sim_AC, SBS_gain, SBS_gain_PE, SBS_gain_MB, linewidth_Hz, k_AC]
 
 
-nu_widths = 6
-waveguide_widths = np.linspace(630,780,nu_widths)
+nu_widths = 3
+waveguide_widths = np.linspace(630,690,nu_widths)
 geo_objects_list = []
 # Scale meshing to new structures.
 for width in waveguide_widths:
     msh_ratio = (width/known_geo)
     unitcell_x = 2.5*wl_nm*msh_ratio
     unitcell_y = unitcell_x
-    inc_a_x = width
+    inc_a_x = width 
     inc_a_y = 550
 
     wguide = objects.Struct(unitcell_x,inc_a_x,unitcell_y,
@@ -95,12 +95,17 @@ if new_calcs:
   # It's good practise to run the extrema of your simulation range through map()
   # before launcing full multicore simulation.
 
-  width_objs = pool.map(modes_n_gain, geo_objects_list)
+  width_objs = map(modes_n_gain, geo_objects_list)
+  print('Saving simo results')
   np.savez('Simo_results', width_objs=width_objs)
+  print('Saved simo results')
+  
   
 else:
+  print('Loading simo results')  
   npzfile = np.load('Simo_results.npz', allow_pickle=True)
   width_objs = npzfile['width_objs'].tolist()
+  print('Loaded simo results')
   
 n_effs = []
 freqs_gains = []
@@ -118,13 +123,16 @@ for i_w, width_obj in enumerate(width_objs):
     linewidth_Hz = width_obj[5]
     k_AC = width_obj[6]
     # Calculate the EM effective index of the waveguide (k_AC = 2*k_EM).
+    print('Calculating n_eff_sim')
     n_eff_sim = np.round(np.real((k_AC/2.)*((wl_nm*1e-9)/(2.*np.pi))), 4)
     n_effs.append(n_eff_sim)
+    print('Done calculating n_eff_sim')
 
     print(sim_AC)
     # Construct the SBS gain spectrum, built from Lorentzian peaks of the individual modes.
     freq_min = np.real(sim_AC.Eig_values[0])*1e-9 - 5  # GHz
     freq_max = np.real(sim_AC.Eig_values[-1])*1e-9 + 5  # GHz
+    print('Plotting gain spectra')
     plotting.gain_spectra(sim_AC, SBS_gain, SBS_gain_PE, SBS_gain_MB, linewidth_Hz, k_AC,
         EM_ival_pump, EM_ival_Stokes, AC_ival, freq_min=freq_min, freq_max=freq_max, 
         prefix_str=prefix_str, suffix_str='_scan%i' % i_w)
@@ -148,6 +156,7 @@ print('Widths', waveguide_widths)
 print('n_effs', n_effs)
 
 # Plot a 'waterfall' plot.
+print('Plotting waterfall')
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 poly = PolyCollection(freqs_gains)
