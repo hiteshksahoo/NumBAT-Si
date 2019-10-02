@@ -67,8 +67,8 @@ def modes_n_gain(wguide):
     return [sim_EM_pump, sim_AC, SBS_gain, SBS_gain_PE, SBS_gain_MB, linewidth_Hz, k_AC]
 
 
-nu_widths = 7
-waveguide_widths = np.linspace(630,810,nu_widths)
+nu_widths = 6
+waveguide_widths = np.linspace(630,780,nu_widths)
 geo_objects_list = []
 # Scale meshing to new structures.
 for width in waveguide_widths:
@@ -82,7 +82,7 @@ for width in waveguide_widths:
                             inc_a_y,inc_shape,
                             material_bkg=materials.Vacuum,
                             material_a=materials.aSi,
-                            lc_bkg=1, lc2=600.0, lc3=300.0)
+                            lc_bkg=1, lc2=1000.0, lc3=600.0)
     geo_objects_list.append(wguide)
 
 
