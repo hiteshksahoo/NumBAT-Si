@@ -418,3 +418,4 @@ GaAs_2016_Smith = Material("GaAs_2016_Smith")
 
 aSi = Material("aSi")
 Sapphire = Material("Sapphire")
+Al21GaAs = Material("Al21GaAs")
