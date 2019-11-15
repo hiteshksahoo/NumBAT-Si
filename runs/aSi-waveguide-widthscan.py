@@ -44,7 +44,7 @@ AC_ival = 'All'
 prefix_str = 'aSi-wg-widthscan-550nm-'
 
 # Width previous simo's done for, with known meshing params
-known_geo = 660.
+known_geo = 630.
 
 def modes_n_gain(wguide):
     print ('Commencing mode calculation for width a_x = %f' % wguide.inc_a_x)
@@ -67,8 +67,8 @@ def modes_n_gain(wguide):
     return [sim_EM_pump, sim_AC, SBS_gain, SBS_gain_PE, SBS_gain_MB, linewidth_Hz, k_AC]
 
 
-nu_widths = 3
-waveguide_widths = np.linspace(630,690,nu_widths)
+nu_widths = 5
+waveguide_widths = np.linspace(590,710,nu_widths)
 geo_objects_list = []
 # Scale meshing to new structures.
 for width in waveguide_widths:
@@ -82,7 +82,7 @@ for width in waveguide_widths:
                             inc_a_y,inc_shape,
                             material_bkg=materials.Vacuum,
                             material_a=materials.aSi,
-                            lc_bkg=1, lc2=1000.0, lc3=600.0)
+                            lc_bkg=1, lc2=1000.0, lc3=900.0)
     geo_objects_list.append(wguide)
 
 
@@ -132,6 +132,8 @@ for i_w, width_obj in enumerate(width_objs):
     # Construct the SBS gain spectrum, built from Lorentzian peaks of the individual modes.
     freq_min = np.real(sim_AC.Eig_values[0])*1e-9 - 5  # GHz
     freq_max = np.real(sim_AC.Eig_values[-1])*1e-9 + 5  # GHz
+    #freq_min = 1
+    #freq_max = 40
     print('Plotting gain spectra')
     plotting.gain_spectra(sim_AC, SBS_gain, SBS_gain_PE, SBS_gain_MB, linewidth_Hz, k_AC,
         EM_ival_pump, EM_ival_Stokes, AC_ival, freq_min=freq_min, freq_max=freq_max, 
