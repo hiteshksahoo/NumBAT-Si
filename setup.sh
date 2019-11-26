@@ -1,6 +1,5 @@
 #!/bin/bash
-
-function makeBAT() {
+function makeBAT (){
 ## install dependencies
   apt-get install -y python3-numpy python3-dev python3-scipy python3-nose python3-pip gfortran make gmsh libatlas-base-dev libblas-dev liblapack-dev libsuitesparse-dev
   pip3 install matplotlib # safer option than apt-get'ing as will install mpl2.0 without conflicting older versions.
@@ -12,10 +11,8 @@ function makeBAT() {
   echo '#####################################################################'
   echo '        Executing NumBAT test suite'
   echo '#####################################################################'
-
   cd ../../tests/
   nosetests3
-
 ##
   echo ''
   echo '#####################################################################'
@@ -27,8 +24,6 @@ function makeBAT() {
   echo 'Chris Poulton and Michael Steel, with support from CUDOS'
   echo '#####################################################################'
   echo ''
-
 }
-
 makeBAT
 
