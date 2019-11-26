@@ -41,8 +41,8 @@ inc_shape = 'rib_coated'
 slab_a_x = 4000
 slab_a_y = 1000
 
-coat_x = 200 
-coat_y = 1000
+coat_x = 20 
+coat_y = 20
 
 
 # Number of electromagnetic modes to solve for.
@@ -58,7 +58,7 @@ EM_ival_Stokes = 0
 # The AC mode(s) for which to calculate interaction with EM modes.
 AC_ival = 'All'
 
-prefix_str = 'Al21GaAs_on_Sapp-'
+prefix_str = 'Al21GaAs_on_Sapp-coated'
 
 # Use specified parameters to create a waveguide object.
 # Note use of rough mesh for demonstration purposes.
@@ -67,7 +67,7 @@ wguide = objects.Struct(unitcell_x,inc_a_x,unitcell_y,inc_a_y,inc_shape,
                         material_bkg=materials.Vacuum,
                         material_a=materials.Al21GaAs, # waveguide
                         material_b=materials.Sapphire,     # slab
-                        material_c=materials.Vacuum,     # coating
+                        material_c=materials.Sapphire,     # coating
                         lc_bkg=1, lc2=800.0, lc3=400.0)
 
 # Expected effective index of fundamental guided mode.

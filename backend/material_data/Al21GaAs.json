@@ -4,7 +4,7 @@
   "author": "hikus",  // Author of data
   "date": "2019",  // Year of data publication/creation
   "institution": "DTU",  // Source institution
-  "doi": "http://www.ioffe.ru/SVA/NSM/Semicond/AlGaAs/mechanic.html",  // doi or, failing that, the http address
+  "doi": "dx.doi.org/10.1364/OL.41.002338",  // doi or, failing that, the http address http://www.ioffe.ru/SVA/NSM/Semicond/AlGaAs/mechanic.html
   "Re_n": 3.19,  // Real part of refractive index []
   "Im_n": 0.0,  // Imaginary part of refractive index []
   "s": 4992,  // Density [kg/m3]
